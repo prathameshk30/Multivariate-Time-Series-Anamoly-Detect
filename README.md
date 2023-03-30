@@ -56,7 +56,7 @@ In this project we will address the problem by using both condition that is a cu
 
 ## All of the training and Analysis shall be done in this file
 The link to complete project analysis for ML Algorithms:-
-https://github.com/prathameshk30/Multivariate-Anamoly-Detection/blob/main/Jupyter%20Notebooks/Anomaly_Detection%20(8).ipynb
+https://github.com/prathameshk30/Multivariate-Time-Series-Anamoly-Detect/blob/main/Jupter%20Notebooks/Anomaly_Detection%20Analysis.ipynb
 
 ## The following code shall work as the pipeline to be used in AWS Sagemaker:- 
 
