@@ -61,5 +61,6 @@ In this project we will address the problem by using data input based on both ty
 
 ## All of the training and Analysis shall be done in this file
 The link to complete project analysis for ML Algorithms:-
+  
 https://github.com/prathameshk30/Multivariate-Time-Series-Anamoly-Detect/blob/main/Jupter%20Notebooks/Anomaly_Detection%20Analysis.ipynb
 
