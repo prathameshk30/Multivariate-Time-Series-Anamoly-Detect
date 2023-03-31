@@ -22,6 +22,13 @@ Ans:- The main goal of this project for me to understand of basics the  time ser
 <image src="https://user-images.githubusercontent.com/89546195/212576489-020f037b-9faa-49f9-8fe9-6546313e9b30.png" width=70% height=70%>
 <image src="https://user-images.githubusercontent.com/89546195/212576657-36ff452c-66cd-4ce5-bb02-72035841a051.png" width=50% height=50%>
 
+## Context:-
+This project is based on a public dataset provided by "CAIRSENSE-Denver". The databases contain continuous sensor information as well as time stamped equivalent reference data. The aim of this project is to analyze the data to find implication of various natural aprameter such as tempreature, humidity, wind speed etc over a period of time. find some anamolies in the data using univariate and multivariate time series analysis method. A in depth time series analysis is done as a various unsupervised ML methods such as Isolation forest, Kmeans , SVM and comparing it with baseline statsistical maethods such as IQR and eucledian distance.
+
+## Methodology:-
+In attacking the problem of the Anamoly detection  one needs to  consider what type of data input we are using. Is it a batch processing data or a real time streaming data.
+In this project we will address the problem by using data input based on both type of origin, that is a custom ML pipeline for anamoly detection of batch processing data and a ML pipeline for  real time data processing data. 
+
 ## Techstack used:-
 ### Git-version control, Tensorflow, Scikit-learn.
 <image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=15% height=15%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=20% height=20%>
@@ -51,13 +58,6 @@ Ans:- The main goal of this project for me to understand of basics the  time ser
 ```
   pip install -r requirements.txt
 ```
-
-## Context:-
-This project is based on a public dataset provided by "CAIRSENSE-Denver". The databases contain continuous sensor information as well as time stamped equivalent reference data. The aim of this project is to analyze the data to find implication of various natural aprameter such as tempreature, humidity, wind speed etc over a period of time. find some anamolies in the data using univariate and multivariate time series analysis method. A in depth time series analysis is done as a various unsupervised ML methods such as Isolation forest, Kmeans , SVM and comparing it with baseline statsistical maethods such as IQR and eucledian distance.
-
-## Methodology:-
-In attacking the problem of the Anamoly detection  one needs to  consider what type of data input we are using. Is it a batch processing data or a real time streaming data.
-In this project we will address the problem by using data input based on both type of origin, that is a custom ML pipeline for anamoly detection of batch processing data and a ML pipeline for  real time data processing data. 
 
 ## All of the training and Analysis shall be done in this file
 The link to complete project analysis for ML Algorithms:-
