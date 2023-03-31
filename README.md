@@ -60,4 +60,4 @@ The link to complete project analysis for ML Algorithms:-
 https://github.com/prathameshk30/Multivariate-Time-Series-Anamoly-Detect/blob/main/Jupter%20Notebooks/Anomaly_Detection%20Analysis.ipynb
 
 ## Goal:-
-To develope a novel algorithm from scratch to set trigger in a system for the anamolies detected. The ML pipeline will be configured 
+To develope ML pipelines for anamolies detection of time series data and configure it as to be adeopted for CI/CD.
