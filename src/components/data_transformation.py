@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from statsmodels.tsa.stattools import adfuller
+from sklearn.decomposition import PCA
 
 from src.exception import CustomException
 from src.logger import logging
@@ -40,11 +40,11 @@ class data_transform_function:
     def df_sqrt(self,*args):
         return np.sqrt(*args)
     
-    def df_difference(self,*args,phase):
-        return (*args).shift(phase)/(*args)
+    def df_difference(self,args,phase):
+        return (args).shift(phase)/(args)
     
-    def df_difference_sqrt(self,,*args,phase):
-        return np.sqrt(*args).shift(phase)/(*args)
+    def df_difference_sqrt(self,args,phase):
+        return np.sqrt(args).shift(phase)/(args)
 
     def df_sqrt_log(self,*args):
         return np.sqrt(np.log(*args))
@@ -77,7 +77,16 @@ class DataTransformation:
             handle_null_pipeline=Pipeline(
                 steps=("Null values Handling",)
             )
-            
+
+            logging.info(f"Categorical columns: {categorical_columns}")
+            logging.info(f"Numerical columns: {numerical_columns}")
+
+            preprocessor=ColumnTransformer(
+                [
+                ("num_pipeline",num_pipeline,numerical_columns),
+                ("cat_pipelines",cat_pipeline,categorical_columns)
+                ]
+            )
             return preprocessor
         
         except Exception as e:
