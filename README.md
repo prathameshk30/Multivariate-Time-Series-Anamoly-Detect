@@ -1,4 +1,8 @@
 # ML-Anamoly-Detection
+
+## Goal:-
+To develope ML pipelines for anamolies detection of time series data and configure it as to be adeopted for CI/CD.
+
 ## Business Usage Scenarios:- 
 Modern digital businesses generate large amounts of data from various sources and need a holistic, real-time system to detect anomalies and potential incidents to save money, improve performance, and identify new opportunities. Traditional monitoring tools often have built-in delays and operate independently of each department, making it challenging to associate anomalies with their potential impact.
 Real-time monitoring and analysis of data patterns can identify unexpected changes that need investigation. For instance, an e-commerce company may detect an increase in online gift card purchases and a decrease in expected gift card revenue, indicating a potential issue like a price glitch that requires prompt attention.
@@ -59,5 +63,3 @@ In this project we will address the problem by using data input based on both ty
 The link to complete project analysis for ML Algorithms:-
 https://github.com/prathameshk30/Multivariate-Time-Series-Anamoly-Detect/blob/main/Jupter%20Notebooks/Anomaly_Detection%20Analysis.ipynb
 
-## Goal:-
-To develope ML pipelines for anamolies detection of time series data and configure it as to be adeopted for CI/CD.
