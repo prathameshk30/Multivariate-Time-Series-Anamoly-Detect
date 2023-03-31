@@ -23,7 +23,7 @@ Ans:- The main goal of this project for me to understand of basics the  time ser
 <image src="https://user-images.githubusercontent.com/89546195/212576657-36ff452c-66cd-4ce5-bb02-72035841a051.png" width=50% height=50%>
 
 ## Context:-
-This project is based on a public dataset provided by "CAIRSENSE-Denver". The databases contain continuous sensor information as well as time stamped equivalent reference data. The aim of this project is to analyze the data to find implication of various natural aprameter such as tempreature, humidity, wind speed etc over a period of time. find some anamolies in the data using univariate and multivariate time series analysis method. A in depth time series analysis is done as a various unsupervised ML methods such as Isolation forest, Kmeans , SVM and comparing it with baseline statsistical maethods such as IQR and eucledian distance.
+This project aims to find anomalies in time series data that is generated using the multiple sensors. IQR calculated to check base outlier threshold. Linear-Nonlinear nature compared. Outliers detected using distance metrics such as Euclidean, Mahalobnis, BHT that is calculated between Kmeans derived centroid of PCA based feature & datapoints. A custom LSTM Auto Encoder to check anomalies due to nonlinear nature. After Evaluation of various models, I made a custom Ensemble model to handle both linear & Non-linear anomalies. 
 
 ## Methodology:-
 In attacking the problem of the Anamoly detection  one needs to  consider what type of data input we are using. Is it a batch processing data or a real time streaming data.
