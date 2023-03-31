@@ -15,7 +15,7 @@ from src.logger import logging
 class DataTransformationConfig:
     preprocessor_ob_file_path= os.path.join(r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detection",'artifacts')
 
-class data_transform_function:
+class transform_function:
     # Function to handle null values
     def handle_null(self,df):
         try:  
@@ -54,7 +54,7 @@ class data_transform_function:
     
     def PCA_df(self,n,df,x,*args):
         try:
-            pca = PCA(n_components=n)
+            pca=PCA(n_components=n)
             principalComponents = pca.fit_transform(x)
             principal_df = pd.DataFrame(data = principalComponents, columns = [*args])
             df=df.reset_index()
@@ -67,30 +67,82 @@ class data_transform_function:
 class DataTransformation:
     def __init__(self):
         self.data_transformation_config=DataTransformationConfig()
-        self.transformation_function=data_transform_function()
+        self.transform_function=transform_function()
     
-    def data_transformer_obj(self):
-        '''
-        This function si responsible for data trnasformation
-        '''
+class transform_df_O3(DataTransformation):
+    def __init__(self):
+        return self
+
+    def fit(self,df):
+        return self
+    
+    def transform(self,df):
         try:
-            handle_null_pipeline=Pipeline(
-                steps=("Null values Handling",)
-            )
+            df=self.transform_function.handle_null(df)
+            df['Aeroqual3']=self.transform_function.df_log(df['Aeroqual3'])
+            return df
+        except Exception as e:
+            raise CustomException(e,sys)
 
-            logging.info(f"Categorical columns: {categorical_columns}")
-            logging.info(f"Numerical columns: {numerical_columns}")
+class transform_df_PM(DataTransformation):
+    def __init__(self):
+        return self
 
-            preprocessor=ColumnTransformer(
-                [
-                ("num_pipeline",num_pipeline,numerical_columns),
-                ("cat_pipelines",cat_pipeline,categorical_columns)
-                ]
-            )
-            return preprocessor
+    def fit(self,df):
+        return self
+    
+    def transform(self,df):
+        try:
+            df=self.transform_function.handle_null(df)
+            df['AirAssure1']=self.transform_function.df_log(df['AirAssure1'])
+            df['AirAssure2']=self.transform_function.df_difference(df['AirAssure2'])
+            df['AirAssure3']=self.transform_function.df_sqrt(df['AirAssure3'])
+            df['OPC3']=self.transform_function.df_sqrt(df['OPC3'])
+            df['Shinyei3']=self.transform_function.df_difference_sqrt(df['Shinyei3'],1)
+            return df
         
         except Exception as e:
             raise CustomException(e,sys)
+        
+class transform_df_PM(DataTransformation):
+    def __init__(self):
+        return self
+
+    def fit(self,df):
+        return self
+    
+    def transform(self,df):
+        try:
+            df=self.transform_function.handle_null(df)
+            df['AirAssure1']=self.transform_function.df_log(df['AirAssure1'])
+            df['AirAssure2']=self.transform_function.df_difference(df['AirAssure2'])
+            df['AirAssure3']=self.transform_function.df_sqrt(df['AirAssure3'])
+            df['OPC3']=self.transform_function.df_sqrt(df['OPC3'])
+            df['Shinyei3']=self.transform_function.df_difference_sqrt(df['Shinyei3'],1)
+            return df
+        
+        except Exception as e:
+            raise CustomException(e,sys)
+
+class get_transformer_object:
+    def initiate_data_transformation(self):
+        try:
+            root_path=r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detect\artifacts"
+            df_O3=pd.read_pickle(os.path.join(root_path,"\df_O3.pkl"))
+            df_PM=pd.read_pickle(os.path.join(root_path,"\df_PM.pkl"))
+            df_PMO=pd.read_pickle(os.path.join(root_path,"\df_PMO.pkl"))
+            df_O3_NO=pd.read_pickle(os.path.join(root_path,"\df_O3_NO.pkl"))
+            df_hppcf=pd.read_pickle(os.path.join(root_path,"\df_hppcf.pkl"))
+
+            logging.info("Read train and test data completed")
+            logging.info("Obtaining preprocessing object")
+
+            preprocessing_obj=self.get_data_transformer_obj()
+
+        except Exception as e:
+            raise CustomException(e,sys)
+
+
 
 
 
