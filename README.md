@@ -50,7 +50,7 @@ Ans:- The main goal of this project for me to understand of basics the  time ser
 ## Context:-
 This project is based on a public dataset provided by "CAIRSENSE-Denver". The databases contain continuous sensor information as well as time stamped equivalent reference data. The aim of this project is to analyze the data to find implication of various natural aprameter such as tempreature, humidity, wind speed etc over a period of time. find some anamolies in the data using univariate and multivariate time series analysis method. A in depth time series analysis is done as a various unsupervised ML methods such as Isolation forest, Kmeans , SVM and comparing it with baseline statsistical maethods such as IQR and eucledian distance.
 
-## Methods:-
+## Methodology:-
 In attacking the problem of the Anamoly detection  one needs to  consider what type of data input we are using. Is it a batch processing data or a real time streaming data.
 In this project we will address the problem by using data input based on both type of origin, that is a custom ML pipeline for anamoly detection of batch processing data and a ML pipeline for  real time data processing data. 
 
