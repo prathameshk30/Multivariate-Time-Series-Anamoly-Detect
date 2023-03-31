@@ -13,7 +13,7 @@ from src.exception import CustomException
 from src.logger import logging
 
 class DataTransformationConfig:
-     preprocessor_ob_file_path= os.path.join(r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detection",'artifacts')
+    preprocessor_ob_file_path= os.path.join(r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detection",'artifacts')
 
 class data_transform_function:
     # Function to handle null values
@@ -33,18 +33,6 @@ class data_transform_function:
             return df
         except:
             print("error in handle_null")
-
-    def pca_DF(self,n,df,x,*args):
-        try:
-            pca = PCA(n_components=n)
-            principalComponents = pca.fit_transform(x)
-            principal_df = pd.DataFrame(data = principalComponents, columns = [*args])
-            df=df.reset_index()
-            df=pd.concat([df,principal_df], axis=1)
-            df=df.set_index('date')
-            return df
-        except:
-            print("error in PCA function")
     
     def df_log(self,*args):
         return np.log(*args)
@@ -62,27 +50,40 @@ class data_transform_function:
         return np.sqrt(np.log(*args))
     
     def df_log_sqrt(self,*args):
-        return np.log(np.sqrt(*args))
+        return np.log(np.sqrt(*args)) 
     
-    def 
-    
-
+    def PCA_df(self,n,df,x,*args):
+        try:
+            pca = PCA(n_components=n)
+            principalComponents = pca.fit_transform(x)
+            principal_df = pd.DataFrame(data = principalComponents, columns = [*args])
+            df=df.reset_index()
+            df=pd.concat([df,principal_df], axis=1)
+            df=df.set_index('date')
+            return df
+        except:
+            print("error in PCA function")
 
 class DataTransformation:
-     def __init__(self):
-         self.data_transformation_config=DataTransformationConfig()
-         self.transformation_function=data_transform_function()
+    def __init__(self):
+        self.data_transformation_config=DataTransformationConfig()
+        self.transformation_function=data_transform_function()
     
-     def data_transformer_obj(self):
+    def data_transformer_obj(self):
         '''
         This function si responsible for data trnasformation
         '''
-          try:
+        try:
+            handle_null_pipeline=Pipeline(
+                steps=("Null values Handling",)
+            )
+            
+            return preprocessor
+        
+        except Exception as e:
+            raise CustomException(e,sys)
 
 
-
-          except:
-               pass
 
 
 
