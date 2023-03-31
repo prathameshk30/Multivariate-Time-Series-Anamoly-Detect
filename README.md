@@ -1,7 +1,7 @@
 # ML-Anamoly-Detection
 
 ## Goal:-
-To develope ML pipelines for anamolies detection of time series data and configure modular to be adopted for CI/CD functionality.
+To develope ML pipelines for anamolies detection of time series data and configure modular code to be adopted for CI/CD functionality.
 
 ## Business Usage Scenarios:- 
 Modern digital businesses generate large amounts of data from various sources and need a holistic, real-time system to detect anomalies and potential incidents to save money, improve performance, and identify new opportunities. Traditional monitoring tools often have built-in delays and operate independently of each department, making it challenging to associate anomalies with their potential impact.
