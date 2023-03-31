@@ -13,7 +13,7 @@ from src.exception import CustomException
 from src.logger import logging
 
 class DataTransformationConfig:
-    preprocessor_ob_file_path= os.path.join(r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detection",'artifacts')
+    preprocessor_ob_file_path= os.path.join(r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detection\artifacts",'preprocessed')
 
 class transform_function:
     # Function to handle null values
@@ -104,7 +104,7 @@ class transform_df_PM(DataTransformation):
         except Exception as e:
             raise CustomException(e,sys)
         
-class transform_df_PM(DataTransformation):
+class transform_df_hppcf(DataTransformation):
     def __init__(self):
         return self
 
@@ -114,19 +114,57 @@ class transform_df_PM(DataTransformation):
     def transform(self,df):
         try:
             df=self.transform_function.handle_null(df)
-            df['AirAssure1']=self.transform_function.df_log(df['AirAssure1'])
-            df['AirAssure2']=self.transform_function.df_difference(df['AirAssure2'])
-            df['AirAssure3']=self.transform_function.df_sqrt(df['AirAssure3'])
-            df['OPC3']=self.transform_function.df_sqrt(df['OPC3'])
-            df['Shinyei3']=self.transform_function.df_difference_sqrt(df['Shinyei3'],1)
+            df['Airbeam1']=self.transform_function.df_sqrt_log(df['Airbeam1'])
+            df['Airbeam2']=self.transform_function.df_log(df['Airbeam2'])
+            df['Airbeam3']=self.transform_function.df_log_sqrt(['Airbeam3'])
+            return df
+        
+        except Exception as e:
+            raise CustomException(e,sys)
+        
+class transform_df_PMO(DataTransformation):
+    def __init__(self):
+        return self
+
+    def fit(self,df):
+        return self
+    
+    def transform(self,df):
+        try:
+            df=self.transform_function.handle_null(df)
+            return df
+        
+        except Exception as e:
+            raise CustomException(e,sys)
+
+class transform_df_O3_NO(DataTransformation):
+    def __init__(self):
+        return self
+
+    def fit(self,df):
+        return self
+    
+    def transform(self,df):
+        try:
+            df=self.transform_function.handle_null(df)
             return df
         
         except Exception as e:
             raise CustomException(e,sys)
 
 class get_transformer_object:
+    def __init__(self):
+        self.data_path=DataTransformation()
+        self.transform_df_O3=transform_df_O3()
+        self.transform_df_PM=transform_df_PM()
+        self.transform_df_hppcf=transform_df_hppcf()
+        self.transform_df_PMO=transform_df_PMO()
+        self.transform_df_O3_NO=transform_df_O3_NO()
+
     def initiate_data_transformation(self):
         try:
+            os.makedirs(self.data_path.data_transformation_config.preprocessor_ob_file_path, exist_ok=True)
+
             root_path=r"C:\Fall 2022 courses\Project\Anamoly Detect\Multivariate-Time-Series-Anamoly-Detect\artifacts"
             df_O3=pd.read_pickle(os.path.join(root_path,"\df_O3.pkl"))
             df_PM=pd.read_pickle(os.path.join(root_path,"\df_PM.pkl"))
@@ -135,12 +173,52 @@ class get_transformer_object:
             df_hppcf=pd.read_pickle(os.path.join(root_path,"\df_hppcf.pkl"))
 
             logging.info("Read train and test data completed")
+
+            #transforming the DF_O3
+            self.transform_df_O3.fit(df_O3)
+            df_O3=self.transform_df_O3.transform(df_O3)
+
+            #transforming the DF_PM
+            self.transform_df_PM.fit(df_PM)
+            df_PM=self.transform_df_PM.transform(df_PM)
+
+            #transforming the DF_hppcf
+            self.transform_df_hppcf.fit(df_hppcf)
+            df_hppcf=self.transform_df_hppcf.transform(df_hppcf)
+
+            #transforming the DF_PMO
+            self.transform_df_PMO.fit(df_PMO)
+            df_PMO=self.transform_df_hppcf.transform(df_PMO)
+
+            #transforming the DF_O3_NO
+            self.transform_df_O3_NO.fit(df_O3_NO)
+            df_O3_NO=self.transform_df_hppcf.transform(df_O3_NO)
+
+            logging.info("Preparing to write preprocessed object")
+
+            df_O3.to_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_O3.pkl")))
+            df_hppcf.to_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_hppcf.pkl")))
+            df_PM.to_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_PM.pkl")))
+            df_PMO.to_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_PMO.pkl")))
+            df_O3_NO.to_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_O3_NO.pkl")))
+
             logging.info("Obtaining preprocessing object")
 
-            preprocessing_obj=self.get_data_transformer_obj()
+            return (
+                    pd.read_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_O3.pkl"))),
+                    pd.read_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_hppcf.pkl"))),
+                    pd.read_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_PM.pkl"))),
+                    pd.read_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_PMO.pkl"))),
+                    pd.read_pickle(os.path.join(self.data_path.data_transformation_config.preprocessor_ob_file_path,("df_O3_NO.pkl"))),
+            )
 
         except Exception as e:
             raise CustomException(e,sys)
+        
+if __name__=="__main__":
+    obj=get_transformer_object()
+    df_O3, df_hppcf, df_PM, df_PMO, df_O3_NO=obj.initiate_data_transformation()
+    print(df_O3)
 
 
 
