@@ -13,6 +13,11 @@ Data Type :- Pollution particle measurement sensor's reading collected by Cairse
 
 Ans:- The main goal of this project for me to understand of basics the  time series data modelling, building a robust anamoly detection model and use indepth mathematical concepts/statistics for attacking a problem. As sensor data does not have any pre defined weightage to it as would be in case of any customer data it becomes a solely modelling problem without any implication of domian knowledge. Also, modelling a complete system for  checking anamolies in a unknown data is really challenging and would certainly help me to improve my basics of Machine learning.
 
+### Data Source :- https://catalog.data.gov/dataset/cairsense-denver
+
+<image src="https://user-images.githubusercontent.com/89546195/212576489-020f037b-9faa-49f9-8fe9-6546313e9b30.png" width=70% height=70%>
+<image src="https://user-images.githubusercontent.com/89546195/212576657-36ff452c-66cd-4ce5-bb02-72035841a051.png" width=50% height=50%>
+
 ## Techstack used:-
 ### Git-version control, Tensorflow, Scikit-learn.
 <image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=15% height=15%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=20% height=20%>
@@ -42,11 +47,6 @@ Ans:- The main goal of this project for me to understand of basics the  time ser
 ```
   pip install -r requirements.txt
 ```
-
-### Data Source :- https://catalog.data.gov/dataset/cairsense-denver
-
-<image src="https://user-images.githubusercontent.com/89546195/212576489-020f037b-9faa-49f9-8fe9-6546313e9b30.png" width=70% height=70%>
-<image src="https://user-images.githubusercontent.com/89546195/212576657-36ff452c-66cd-4ce5-bb02-72035841a051.png" width=50% height=50%>
 
 ## Context:-
 This project is based on a public dataset provided by "CAIRSENSE-Denver". The databases contain continuous sensor information as well as time stamped equivalent reference data. The aim of this project is to analyze the data to find implication of various natural aprameter such as tempreature, humidity, wind speed etc over a period of time. find some anamolies in the data using univariate and multivariate time series analysis method. A in depth time series analysis is done as a various unsupervised ML methods such as Isolation forest, Kmeans , SVM and comparing it with baseline statsistical maethods such as IQR and eucledian distance.
