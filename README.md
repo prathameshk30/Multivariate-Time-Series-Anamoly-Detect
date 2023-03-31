@@ -1,4 +1,4 @@
-# ML Pipeline-Anamoly-Detection
+# ML Pipeline Anamoly Detection
 
 ## Goal:-
 To develope ML pipelines for anamolies detection of time series data and configure modular code to be adopted for CI/CD functionality.
