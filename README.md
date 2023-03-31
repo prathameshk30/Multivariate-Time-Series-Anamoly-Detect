@@ -58,8 +58,5 @@ In this project we will address the problem by using data input based on both ty
 The link to complete project analysis for ML Algorithms:-
 https://github.com/prathameshk30/Multivariate-Time-Series-Anamoly-Detect/blob/main/Jupter%20Notebooks/Anomaly_Detection%20Analysis.ipynb
 
-## The following code shall work as the pipeline to be used in AWS Sagemaker:- 
-
-
 ## Goal:-
 To develope a novel algorithm from scratch to set trigger in a system for the anamolies detected. The ML pipeline will be configured 
