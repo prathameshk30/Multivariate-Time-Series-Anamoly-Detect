@@ -6,6 +6,13 @@ Anomaly detection systems are crucial for businesses to manage the increasing vo
 
 #### Marketing Analytics (Application):- Pricing Analytics, analysis of web traffic, user interaction , user conversion.
 
+## Data description:-
+Data Type :- Pollution particle measurement sensor's reading collected by Cairsense Denver (Govt of USA)
+
+### Why Machine Sensor data ? if Marketing/ Customer Analytics data can also be used ?
+
+Ans:- The main goal of this project for me to understand of basics the  time series data modelling, building a robust anamoly detection model and use indepth mathematical concepts/statistics for attacking a problem. As sensor data does not have any pre defined weightage to it as would be in case of any customer data it becomes a solely modelling problem without any implication of domian knowledge. Also, modelling a complete system for  checking anamolies in a unknown data is really challenging and would certainly help me to improve my basics of Machine learning.
+
 ## Techstack used:-
 ### Git-version control, Tensorflow, Scikit-learn.
 <image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=15% height=15%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=20% height=20%>
@@ -35,12 +42,6 @@ Anomaly detection systems are crucial for businesses to manage the increasing vo
 ```
   pip install -r requirements.txt
 ```
-## Data description:-
-Data Type :- Pollution particle measurement sensor's reading collected by Cairsense Denver (Govt of USA)
-
-### Why Machine Sensor data ? if Marketing/ Customer Analytics data can also be used ?
-
-Ans:- The main goal of this project for me to understand of basics the  time series data modelling, building a robust anamoly detection model and use indepth mathematical concepts/statistics for attacking a problem. As sensor data does not have any pre defined weightage to it as would be in case of any customer data it becomes a solely modelling problem without any implication of domian knowledge. Also, modelling a complete system for  checking anamolies in a unknown data is really challenging and would certainly help me to improve my basics of Machine learning.
 
 ### Data Source :- https://catalog.data.gov/dataset/cairsense-denver
 
