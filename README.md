@@ -37,7 +37,7 @@ In this project we will address the problem by using data input based on both ty
  <image src="https://user-images.githubusercontent.com/89546195/225790576-59df3439-dee3-44ff-ad7a-bbb8d159a5c9.png" width=20% height=20%> 
 
 ## Installation:-
-## Create a virtual enviorment (anaconda) & install dependency
+## To recreate the project & Code ( use following code in Terminal)
 
 1) Run in terminal & Clone the github repository:-
 
