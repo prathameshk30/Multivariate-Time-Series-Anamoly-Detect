@@ -38,23 +38,13 @@ In this project we will address the problem by using data input based on both ty
 
 ## Installation:-
 ## Create a virtual enviorment (anaconda) & install dependency
-1) open conda promt & enter:-
-```
-   code .
-```
-2) Run in terminal & Clone the github repository:-
+
+1) Run in terminal & Clone the github repository:-
 ```
    git clone https://github.com/prathameshk30/Multivariate-Anamoly-Detection
 ```
-3) open terminal in vscode & type:-
 ```
-   conda create -p venv python==3.9 anaconda -y
-```
-4) Activate the enviornment :-
-```
-   conda activate venv/
-```
-5) in terminal run setup file:-
+2) in terminal run setup file:-
 ```
   pip install -r requirements.txt
 ```
