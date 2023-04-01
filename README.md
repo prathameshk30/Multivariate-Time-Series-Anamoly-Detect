@@ -40,10 +40,12 @@ In this project we will address the problem by using data input based on both ty
 ## Create a virtual enviorment (anaconda) & install dependency
 
 1) Run in terminal & Clone the github repository:-
+
 ```
    git clone https://github.com/prathameshk30/Multivariate-Anamoly-Detection
 ```
 ```
+
 2) in terminal run setup file:-
 ```
   pip install -r requirements.txt
