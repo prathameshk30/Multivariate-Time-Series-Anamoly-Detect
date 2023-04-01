@@ -48,11 +48,11 @@ In this project we will address the problem by using data input based on both ty
 ```
 3) open terminal in vscode & type:-
 ```
-   conda create -p myvenv python==3.9 anaconda -y
+   conda create -p venv python==3.9 anaconda -y
 ```
 4) Activate the enviornment :-
 ```
-   conda activate myvenv/
+   conda activate venv/
 ```
 5) in terminal run setup file:-
 ```
