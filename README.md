@@ -44,12 +44,16 @@ In this project we will address the problem by using data input based on both ty
 ```
    git clone https://github.com/prathameshk30/Multivariate-Anamoly-Detection
 ```
-```
 
 2) in terminal run setup file:-
+  
 ```
   pip install -r requirements.txt
 ```
+3) Run Airflow File to run pipeline:-
+ ```
+  python Airflow_DAG_main.py
+ ```
 
 ## All of the training and Analysis shall be done in this file
 The link to complete project analysis for ML Algorithms:-
