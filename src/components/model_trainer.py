@@ -34,6 +34,7 @@ class model_df_O3:
         a=a.rename(columns={0:'Anamoly'})
         df=pd.concat([df.reset_index(),a], axis=1)
         df=df.set_index('date')
+        return df
 
 class model_df_O3_NO:
     def __init__(self):
@@ -52,6 +53,7 @@ class model_df_O3_NO:
         a=a.rename(columns={0:'Anamoly'})
         df=pd.concat([df.reset_index(),a], axis=1)
         df=df.set_index('date')
+        return df
 
 class model_df_PM:
     def __init__(self):
@@ -70,6 +72,7 @@ class model_df_PM:
         a=a.rename(columns={0:'Anamoly'})
         df=pd.concat([df.reset_index(),a], axis=1)
         df=df.set_index('date')
+        return df
 
 class model_df_hppcf:
     def __init__(self):
@@ -88,6 +91,7 @@ class model_df_hppcf:
         a=a.rename(columns={0:'Anamoly'})
         df=pd.concat([df.reset_index(),a], axis=1)
         df=df.set_index('date')
+        return df
 
 class model_df_PMO:
     def __init__(self):
@@ -106,22 +110,69 @@ class model_df_PMO:
         a=a.rename(columns={0:'Anamoly'})
         df=pd.concat([df.reset_index(),a], axis=1)
         df=df.set_index('date')
+        return df
 
 
 
 class ModelTrainer:
     def __init__(self):
         self.model_trainer_config=ModelTrainerConfig()
-
+        self.model_df_O3=model_df_O3()
+        self.model_df_PM=model_df_PM()
+        self.model_df_O3_NO=model_df_O3_NO()
+        self.model_df_hppcf=model_df_hppcf()
+        self.model_df_PMO=model_df_PMO()
 
     def initiate_model_trainer(self,train_array,test_array):
         os.makedirs(self.model_trainer_config.model_path , exist_ok=True)
         try:
-            pass
+            df_O3=pd.read_pickle(os.path.join(self.model_trainer_config.root_path,"df_O3.pkl"))
+            df_PM=pd.read_pickle(os.path.join(self.model_trainer_config.root_path,"df_PM.pkl"))
+            df_hppcf=pd.read_pickle(os.path.join(self.model_trainer_config.root_path,"df_hppcf.pkl"))
+            df_PMO=pd.read_pickle(os.path.join(self.model_trainer_config.root_path,"df_PMO.pkl"))
+            df_O3_NO=pd.read_pickle(os.path.join(self.model_trainer_config.root_path,"df_O3_NO.pkl"))
+
+            self.model_df_O3.fit(df_O3)
+            df_O3=self.model_df_O3.transform(df_O3)
+
+            self.model_df_O3.fit(df_PM)
+            df_PM=self.model_df_PM.transform(df_PM)
+
+            self.model_df_hppcf.fit(df_hppcf)
+            df_hppcf=self.model_df_hppcf.transform(df_hppcf)
+
+            self.model_df_PMO.fit(df_PMO)
+            df_PMO=self.model_df_PMO.transform(df_PMO)
+
+            self.model_df_O3_NO.fit(df_O3_NO)
+            df_O3_NO=self.model_df_O3_NO.transform(df_O3_NO)
+
+            logging.info("Preparing to write preprocessed object")
+
+            df_O3.to_pickle(os.path.join(self.model_trainer_config.model_path,("df_O3.pkl")))
+            df_hppcf.to_pickle(os.path.join(self.model_trainer_config.model_path,("df_hppcf.pkl")))
+            df_PM.to_pickle(os.path.join(self.model_trainer_config.model_path,("df_PM.pkl")))
+            df_PMO.to_pickle(os.path.join(self.model_trainer_config.model_path,("df_PMO.pkl")))
+            df_O3_NO.to_pickle(os.path.join(self.model_trainer_config.model_path,("df_O3_NO.pkl")))
+
+            logging.info("Obtaining preprocessing object")
+
+            return (
+                    pd.read_pickle(os.path.join(self.model_trainer_config.model_path,("df_O3.pkl"))),
+                    pd.read_pickle(os.path.join(self.model_trainer_config.model_path,("df_hppcf.pkl"))),
+                    pd.read_pickle(os.path.join(self.model_trainer_config.model_path,("df_PM.pkl"))),
+                    pd.read_pickle(os.path.join(self.model_trainer_config.model_path,("df_PMO.pkl"))),
+                    pd.read_pickle(os.path.join(self.model_trainer_config.model_path,("df_O3_NO.pkl"))),
+            )
+
 
         except Exception as e:
             raise CustomException(e,sys)
 
+if __name__=="__main__":
+    obj=ModelTrainer()
+    df_O3, df_hppcf, df_PM, df_PMO, df_O3_NO=obj.initiate_model_trainer()
+    print(df_O3)
 
 
 
