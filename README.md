@@ -55,6 +55,21 @@ In this project we will address the problem by using data input based on both ty
  ```
   python Airflow_DAG_main.py
  ```
+ Folder structure:-
+ ```
+ C:.
+|   Airflow_DAG_main.py
+|   exception.py
+|   logger.py
+|   utils.py
+|   __init__.py
+|
+\---components
+        data_ingestion.py
+        data_transformation.py
+        model_trainer.py
+        __init__.py
+```
 
 ## All of the training and Analysis shall be done in this file
 The link to complete project analysis for ML Algorithms:-
