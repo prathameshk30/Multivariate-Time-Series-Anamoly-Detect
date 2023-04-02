@@ -31,7 +31,7 @@ In this project we will address the problem by using data input based on both ty
 
 ## Techstack used:-
 ### Git-version control, Tensorflow, Scikit-learn, Airflow
-<image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=10% height=10%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=10% height=10%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=10% height=10%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=10% height=10%> <image src="https://user-images.githubusercontent.com/89546195/229323395-6ab73217-769c-45e8-82f0-4698289e6d55.png" width=10% height=10%>
+<image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=10% height=10%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=10% height=15%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=10% height=12%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=10% height=15%> <image src="https://user-images.githubusercontent.com/89546195/229323395-6ab73217-769c-45e8-82f0-4698289e6d55.png" width=10% height=15%>
 
 
 ## This Github repository is managed using version control:-
