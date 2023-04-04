@@ -1,7 +1,7 @@
 # ML Pipeline Anamoly Detection
 
 ## Goal:-
-To develope ML pipelines for anamolies detection of time series data and configure modular code to be adopted for CI/CD functionality.
+To develope ML pipeline for anamolies detection of time series data and configure modular code to be adopted for CI/CD functionality.
 
 ## Business Usage Scenarios:- 
 Modern digital businesses generate large amounts of data from various sources and need a holistic, real-time system to detect anomalies and potential incidents to save money, improve performance, and identify new opportunities. Traditional monitoring tools often have built-in delays and operate independently of each department, making it challenging to associate anomalies with their potential impact.
@@ -30,33 +30,45 @@ In attacking the problem of the Anamoly detection  one needs to  consider what t
 In this project we will address the problem by using data input based on both type of origin, that is a custom ML pipeline for anamoly detection of batch processing data and a ML pipeline for  real time data processing data. 
 
 ## Techstack used:-
-### Git-version control, Tensorflow, Scikit-learn.
-<image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=15% height=15%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=20% height=20%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=20% height=20%>
+### Git-version control, Tensorflow, Scikit-learn, Airflow
+<image src="https://user-images.githubusercontent.com/89546195/225781842-22fb4c61-dfe6-46d8-b5b8-6b00dedee6e3.png" width=10% height=10%><image src="https://user-images.githubusercontent.com/89546195/225764006-ce83be94-53a6-4312-83a5-ff67b98788cf.png" width=10% height=10%> <image src="https://user-images.githubusercontent.com/89546195/225764357-ae84186d-8ad0-4e50-ba9d-d7bdf8e1f59f.png" width=10% height=10%> <image src="https://user-images.githubusercontent.com/89546195/225764601-6166b326-c5a1-4da1-8048-35586b9493bd.png" width=15% height=15%> <image src="https://user-images.githubusercontent.com/89546195/229323395-6ab73217-769c-45e8-82f0-4698289e6d55.png" width=15% height=15%>
+
 
 ## This Github repository is managed using version control:-
  <image src="https://user-images.githubusercontent.com/89546195/225790576-59df3439-dee3-44ff-ad7a-bbb8d159a5c9.png" width=20% height=20%> 
 
 ## Installation:-
-## Create a virtual enviorment (anaconda) & install dependency
-1) open conda promt & enter:-
-```
-   code .
-```
-2) Run in terminal & Clone the github repository:-
+## To recreate the project & Code ( use following code in Terminal)
+
+1) Run in terminal & Clone the github repository:-
+
 ```
    git clone https://github.com/prathameshk30/Multivariate-Anamoly-Detection
 ```
-3) open terminal in vscode & type:-
-```
-   conda create -p venv python==3.9 anaconda -y
-```
-4) Activate the enviornment :-
-```
-   conda activate venv/
-```
-5) in terminal run setup file:-
+
+2) in terminal run setup file:-
+  
 ```
   pip install -r requirements.txt
+```
+3) Run Airflow File to run pipeline:-
+ ```
+  python Airflow_DAG_main.py
+ ```
+ Folder structure:-
+ ```
+ C:.
+|   Airflow_DAG_main.py
+|   exception.py
+|   logger.py
+|   utils.py
+|   __init__.py
+|
+\---components
+        data_ingestion.py
+        data_transformation.py
+        model_trainer.py
+        __init__.py
 ```
 
 ## All of the training and Analysis shall be done in this file
